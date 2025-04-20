@@ -1,0 +1,12 @@
+import pickle as p
+x = str(input("Enter file name :"))
+def read(x):
+  with open(x+".bin","rb") as f:
+    print("Binary file contents")
+    while True:
+      r = p.load(f)
+      for i in r:
+        print(i,":\t",r[i])
+  f.close()
+
+read()
