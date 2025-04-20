@@ -1,0 +1,69 @@
+stack = []
+m = int(input("Enter max list lenght :"))
+
+def push():
+  if len(stack) >= m:
+    print("Stack overflow !!!")
+  else:
+    x = int(input("Enter the element :"))
+    stack.append(x)
+
+def peek():
+  print("Last added element of the list :")
+  print(stack[len(stack)-1])
+
+def pop():
+  if len(stack) <=0:
+    print("Stack underflow !!")
+  else:
+    x = stack.pop()
+    print("Last removed element :",x)
+
+def size():
+  print("The length of the stack is :",len(stack))
+
+def empty():
+  if len(stack) == 0:
+    print("the stack is empty")
+  else:
+    print("The stack is not empty")
+
+def display():
+  print("Stack in order")
+  for i in range(1,len(stack)+1):
+    print(stack[len(stack)-i],end = "  ")
+
+print("""Stack operations available :
+1. Push (1)
+2. pop (2)
+3. peek (3)
+4. size (4)
+5. empty (5)
+6. display (6)
+7. Exit (7)""")
+w = int(input("Enter operation number :"))
+while w != 7:
+  if w == 1:
+    push()
+    print("-"*20)
+  elif w == 2:
+    pop()
+    print("-"*20)
+  elif w == 3:
+    peek()
+    print("-"*20)
+  elif w == 4:
+    size()
+    print("-"*20)
+  elif w == 5:
+    empty()
+    print("-"*20)
+  elif w == 6:
+    display()
+    print("-"*20)
+  elif w != 7:
+    print("Enter a valid operation number")
+    print("-"*20)
+  else:
+    pass
+  w = int(input("Enter operation number :"))
