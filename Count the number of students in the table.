@@ -1,0 +1,9 @@
+import mysql.connector as mc
+con = mc.connect(host = "localhost",user = "root",password= "root")
+cur = con.cursor()
+cur.execute("Use master")
+
+cur.execute("Select * from child1;")
+r = cur.fetchall()
+print("Number of students records in the table is :",len(r))
+con.close()
