@@ -1,0 +1,10 @@
+x1 = str(input("Enter file name-1 :"))
+f1 = open(x+".txt","r")
+x2 = str(input("Enter file name-2 :"))
+f3 = open(x+".txt","r")
+r1 = f1.read()
+r2 = f2.read()
+if r1 == r2:
+  print("THe two files have the same content ")
+else:
+  print("the two files have different contents")
