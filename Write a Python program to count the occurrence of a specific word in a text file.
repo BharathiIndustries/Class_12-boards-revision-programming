@@ -1,0 +1,9 @@
+x = str(input("Enter file name :"))
+f = open(x+".txt","r")
+y = str(input("Enter word to search for"))
+r = f.read().split()
+c = 0
+for i in r:
+  if i.lower() == y.lower():
+    c = c + 1
+print("The total number of occurance of the given word is :",c)
