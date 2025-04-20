@@ -1,0 +1,10 @@
+x = str(input("Enter file name :"))
+f = open(x+".txt","r")
+lis = []
+r = f.read()
+for i in r:
+  if i.isdigit():
+    lis.append(i)
+  else:
+    pass
+print("the list of all the numbers in the file :",lis)
