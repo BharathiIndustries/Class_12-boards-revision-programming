@@ -1,0 +1,14 @@
+x = str(input("Enter file name :"))
+f = open(x+".txt","r")
+y = str(input("Enter word to search for :"))
+c = 0
+lis = []
+r = f.read()
+for i in r.split():
+  if i.lower() == y.lower():
+    c = c+1
+    lis.append(lis.index(i.lower()))
+  else:
+    pass
+print("NUmber of occurance of the word :",c)
+print("Word postion of the given word in the file :",lis)
