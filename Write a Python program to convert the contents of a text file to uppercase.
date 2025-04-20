@@ -1,0 +1,7 @@
+x = str(input("Enter file name :"))
+f = open(x+".txt","r+")
+r = f.read()
+st = r.upper()
+f.close()
+with open(x+".txt","w") as f:
+  f.write(st)
