@@ -1,0 +1,14 @@
+import pickle as p
+x = str(input("Enter file name :"))
+f = open(x+".bin","wb")
+n = int(input("Enter list max size :"))
+m = int(input("Enter tuple max size :"))
+lis = []
+for i in range(n):
+  tup = tuple()
+  for j in range(m):
+    y = int(input("Enter element :"))
+    tup = tup + (y,)
+  lis.append(tup)
+
+p.dump(lis,f)
