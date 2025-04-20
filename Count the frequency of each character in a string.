@@ -1,0 +1,10 @@
+st = str(input("Enter the string :"))
+x = str(input("Enter the string to look for :"))
+lis = st.split()
+n = 0
+for i in lis:
+  if x.lower() == i.lower():
+    n = n+1
+  else:
+    pass
+print("Number of occurance of ",x," is :",n)
