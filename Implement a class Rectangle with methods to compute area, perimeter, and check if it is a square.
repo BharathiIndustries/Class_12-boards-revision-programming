@@ -1,0 +1,19 @@
+def area(x,y):
+  a = x*y
+  print("Area of the rectangle is ",a,"Sq units")
+
+def perimeter(x,y):
+  p = 2*(x+y)
+  print("Area of the perimeter is ",p,"units")
+
+def check(x,y):
+  if x == y:
+    print("The rectangle is square ")
+  else:
+    print("It is a rectangle ")
+
+x = int(input("Enter the length :"))
+y = int(input("Enter the width :"))
+area(x,y)
+perimeter(x,y)
+check(x,y)
