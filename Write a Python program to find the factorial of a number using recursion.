@@ -1,0 +1,21 @@
+
+def withfor():
+  x = int(input("Enter a number :"))
+  m = 1
+  for i in range(1,x+1):
+    m = m*i
+  print(m)
+
+def withwhile():
+  x = int(input("Enter a number :"))
+  n = 1
+  y = 1
+  while y<=x:
+    n = n*y
+    y =  y + 1
+  return n
+
+print("With for loop")
+withfor()
+print("With while loop")
+withwhile()
