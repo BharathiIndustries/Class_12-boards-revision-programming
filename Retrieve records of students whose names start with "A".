@@ -1,0 +1,11 @@
+import mysql.connector as mc
+con = mc.connect(host = "localhost",user = "root",password= "root")
+cur = con.cursor()
+cur.execute("Use Master")
+st = "Select * from child1 where name like 'A%;"
+cur.execute(st)
+r = cur.fetchall()
+print("ID\t","Name\t","Age\t","marks")
+for i in r:
+  print(i[0],"\t",i[1],"\t",i[2],"\t",i[3],"\t")
+con.close()
