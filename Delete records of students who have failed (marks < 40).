@@ -1,0 +1,9 @@
+import mysql.connector as mc
+con = mc.connect(host = "localhost",user = "root",password= "root")
+cur = con.cursor()
+cur.execute("Use master")
+
+st = "Delete from child1 where marks <=40;"
+cur.execute(st)
+con.commit()
+con.close()
