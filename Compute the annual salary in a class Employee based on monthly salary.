@@ -1,0 +1,22 @@
+def inputer():
+  x = int(input("Enter how many inputs do you want to give :"))
+  global lis
+  lis = []
+  for i in range(x):
+    id = int(input("Enter Employee ID :"))
+    na = str(input("Enter Employee name :"))
+    sa = int(input("Enter Employee Salary :"))
+    n = [id,na,sa]
+    lis.append(n)
+
+def totalsal():
+  x = int(input("Enter Emloyee ID :"))
+  n = 0
+  for i in lis:
+    if i[0] == x:
+      n = i[2]
+  print("Total employee salary :",n*12)
+
+inputer()
+totalsal()
+print("The Employee Database :",lis)
