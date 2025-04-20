@@ -1,0 +1,15 @@
+x = str(input("Enter file name :"))
+f = open(x+".txt","r")
+r = f.read()
+s = r.split()
+max = 0
+n = 0
+for i in s:
+  if len(i) >= max:
+    max = len(i)
+    n = s.index(i)
+  else:
+    pass
+
+print("The longest word in the file is :",s[n])
+print("It has a maximum letter count of :",max)
