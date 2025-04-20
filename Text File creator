@@ -1,0 +1,8 @@
+x = str(input("Enter file name :"))
+f = open(x+".txt","a")
+n = int(input("How many lines do you want to enter :"))
+for i in range(n):
+  print("Enter line NO -",i+1)
+  y = str(input("-> "))
+  f.write(y)
+f.close()
