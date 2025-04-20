@@ -1,0 +1,91 @@
+stack = []
+m = int(input("Enter max list lenght :"))
+f = open("Log.txt","w")
+f.write("Maxmium stack length -"+str(m))
+def push():
+  if len(stack) >= m:
+    print("Stack overflow !!!")
+  else:
+    x = int(input("Enter the element :"))
+    stack.append(x)
+
+def peek():
+  print("Last added element of the list :")
+  print(stack[len(stack)-1])
+
+def pop():
+  if len(stack) <=0:
+    print("Stack underflow !!")
+  else:
+    x = stack.pop()
+    print("Last removed element :",x)
+
+def size():
+  print("The length of the stack is :",len(stack))
+
+def empty():
+  if len(stack) == 0:
+    print("the stack is empty")
+  else:
+    print("The stack is not empty")
+
+def display():
+  print("Stack in order")
+  for i in range(1,len(stack)+1):
+    print(stack[len(stack)-i],end = ",")
+  print()
+
+def loger(z):
+  f.write("Operation number :"+str(z)+"\n")
+  st = ""
+  for i in range(1,len(stack)+1):
+    st = st + str(stack[len(stack)-i]) + " "
+  f.write(st)
+  f.write("\n")
+
+
+print("""Stack operations available :
+1. Push (1)
+2. pop (2)
+3. peek (3)
+4. size (4)
+5. empty (5)
+6. display (6)
+7. Exit (7)""")
+w = int(input("Enter operation number :"))
+while w != 7:
+  if w == 1:
+    push()
+    loger(1)
+    print("-"*20)
+  elif w == 2:
+    pop()
+    loger(2)
+    print("-"*20)
+  elif w == 3:
+    peek()
+    loger(3)
+    print("-"*20)
+  elif w == 4:
+    size()
+    loger(4)
+    print("-"*20)
+  elif w == 5:
+    empty()
+    loger(5)
+    print("-"*20)
+  elif w == 6:
+    display()
+    loger(6)
+    print("-"*20)
+  elif w != 7:
+    loger(w)
+    print("Enter a valid operation number")
+    print("-"*20)
+  else:
+    loger(7)
+    pass
+  w = int(input("Enter operation number :"))
+
+f.flush()
+f.close()
