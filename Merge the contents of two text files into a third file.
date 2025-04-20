@@ -1,0 +1,8 @@
+x1 = str(input("Enter file name-1 :"))
+f1 = open(x+".txt","r")
+x2 = str(input("Enter file name-2 :"))
+f3 = open(x+".txt","r")
+n = open("Newfile"+x1+"+"+x2+".txt","w")
+r1 = f1.readlines()
+r2 = f2.readlines()
+n.writelines(r1+"\n"+r2)
