@@ -1,0 +1,8 @@
+import csv as c
+x = str(input("Enter file name :"))
+f = open(x+".csv","r")
+re = c.reader(f)
+print("File contents")
+for i in re:
+  print(i[0],"\t",i[1],"\t",i[2],"\t",i[3],"\t",i[4])
+
