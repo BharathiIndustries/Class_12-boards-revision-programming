@@ -1,0 +1,14 @@
+x = str(input("Enter file name :"))
+f = open(x+".txt","r")
+c = 0
+w = 0
+l = len(f.readlines())
+r = f.read().split()
+for i in r:
+  for j in i:
+    c = c + 1
+  w = w + 1
+print("number of characters in the file :",c)
+print("number of characters in the file including blank space :",len(f.read()))
+print("number of words in the file :",w)
+print("number of lines in the file :",l)
