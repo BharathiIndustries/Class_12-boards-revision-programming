@@ -1,0 +1,30 @@
+def revseletter():
+  x = str(input("Enter file name :"))
+  f = open(x+".txt","r")
+  r = f.read()
+  lis = []
+  for i in r:
+    lis.append(i)
+  lis.reverse()
+  f.close()
+  with open(x+".txt","w") as f:
+    f.writelines(lis)
+
+def revseword():
+  x = str(input("Enter file name :"))
+  f = open(x+".txt","r")
+  r = f.read()
+  s = r.split()
+  s.reverse()
+  f.close()
+  with open(x+".txt","w") as f:
+    f.writelines(s)
+
+def revseline():
+  x = str(input("Enter file name :"))
+  f = open(x+".txt","r")
+  r = f.readlines()
+  r.reverse()
+  f.close()
+  with open(x+".txt","w") as f:
+    f.writelines(s)
