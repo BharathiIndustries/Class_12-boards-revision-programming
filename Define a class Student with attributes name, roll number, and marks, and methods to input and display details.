@@ -1,0 +1,84 @@
+dic = {}
+def inputer():
+  x = int(input("How many inputs do you want to give :"))
+  for i in range(x):
+    ro = int(input("Enter roll number :"))
+    cl = int(input("Enter class :"))
+    na = str(input("Enter Name :"))
+    ma = int(input("Enter marks :"))
+    dic[ro] = [na,cl,ma]
+    print("*"*20)
+
+def search():
+  r = int(input("Enter student roll number to search for :"))
+  for i in dic:
+    if i == r:
+      print("The Student detailes :")
+      print(dic[i])
+    else:
+      print("Could not find the roll number")
+
+def change():
+  r = int(input("Enter student roll number :"))
+  print("""What do you want to change :
+  1.Name(1)
+  2.Class(2)
+  3.Marks(3)""")
+
+  w = int(input("Enter the number :"))
+  if w == 1:
+    for i in dic:
+      if i == r:
+        na = str(input("Enter the new name :"))
+        dic[r][0] == na
+      else:
+        print("Can't find the roll number")
+
+  elif w == 2:
+    for i in dic:
+      if i == r:
+        cl = str(input("Enter the new class :"))
+        dic[r][1] == cl
+      else:
+        print("Can't find the roll number")
+
+  elif w == 3:
+    for i in dic:
+      if i == r:
+        ma = str(input("Enter the new marks :"))
+        dic[r][2] == ma
+      else:
+        print("Can't find the roll number")
+
+def display():
+  print("Students records:")
+  print("Roll number\t","Name\t","Class\t","Marks")
+  for i in dic:
+    print(i,"\t\t",dic[i][0],"\t",dic[i][1],"\t",dic[i][2])
+
+print("""Operations Available :
+1.inputer(1)
+2.search(2)
+3.change(3)
+4.display(4)
+5.exit(5)""")
+wt = int(input("Enter operation number :"))
+while wt != 5:
+  if wt == 1:
+    inputer()
+    print("*"*20)
+  elif wt == 2:
+    search()
+    print("*"*20)
+  elif wt == 3:
+    change()
+    print("*"*20)
+  elif wt == 4:
+    display()
+    print("*"*20)
+  elif wt == 5:
+    pass
+  else:
+    print("Invaild operation number")
+    print("*"*20)
+  wt = int(input("Enter operation number :"))
