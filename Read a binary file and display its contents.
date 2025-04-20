@@ -1,0 +1,7 @@
+import pickle as p
+x = str(input("Enter file name :"))
+with open(x+".bin","rb") as f:
+  print("File contents")
+  while True:
+    for i in list(p.load(f)):
+      print(i[0],"\t",i[1],"\t",i[2],"\t",i[3],"\t",i[4])
