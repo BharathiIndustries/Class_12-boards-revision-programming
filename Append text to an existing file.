@@ -1,0 +1,13 @@
+x = str(input("Enter file name :"))
+f = open(x+".txt","a+")
+n = int(input("How Many lines do you want to append :"))
+for i in range(1,n+1):
+  print("enter line-",i)
+  l = str(input("-> "))
+  f.write(l+"\n")
+
+print("Contents of the file :")
+re = f.readlines()
+for i in re:
+  print(i)
+f.close()
