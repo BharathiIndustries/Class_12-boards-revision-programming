@@ -1,0 +1,13 @@
+import mysql.connector as mc
+con = mc.connect(host = "localhost",user = "root",password= "root")
+cur = con.cursor()
+cur.execute("Use master")
+
+def changerma():
+  x = int(input("Enter student Id :"))
+  n = int(input("Enter new marks :"))
+  st = "update child1 set marks = {} where id = {};".format(x,n)
+  cur.execute(st)
+changerma()
+con.commit()
+con.close()
