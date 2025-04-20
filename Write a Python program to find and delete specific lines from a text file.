@@ -1,0 +1,14 @@
+x = str(input("Enter file name :"))
+f = open(x+".txt","r")
+y = str(input("Enter line to delete :"))
+r = f.readlines()
+li = []
+for i in r:
+  if i == y:
+    pass
+  else:
+    li.append(i)
+f.close()
+with open(x+".txt","w") as f:
+  f.writelines(li)
+f.close()
