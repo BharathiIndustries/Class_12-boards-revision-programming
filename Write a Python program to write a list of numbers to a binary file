@@ -1,0 +1,9 @@
+import pickle as p
+x = str(input("Enter file name :"))
+f = open(x+".bin","wb")
+n = int(input("Enter how many numbers you want to enter :"))
+lis = []
+for i in range(n):
+  y = int(input("Enter the element :"))
+  lis.append(y)
+p.dump(lis,f)
