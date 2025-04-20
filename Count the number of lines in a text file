@@ -1,0 +1,6 @@
+x = str(input("Enter file name :"))
+f = open(x+".txt","r")
+c = 0
+for i in f.readlines():
+  c = c + 1
+print("NUmber of lines in the file is :",c)
