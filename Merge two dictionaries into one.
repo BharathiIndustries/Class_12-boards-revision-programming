@@ -1,0 +1,15 @@
+def diccreat():
+  x = int(input("Enter dictionary length :"))
+  dic = {}
+  for i in range(x):
+    key = str(input("Enter Key :"))
+    obj = str(input("Enter Value :"))
+    dic[key] = obj
+    print("*"*20)
+  return dic
+dic1 = diccreat()
+dic2 = diccreat()
+ndic = dic1
+for i in dic2:
+  ndic[i] = dic2[i]
+print("New dictionary :",ndic)
