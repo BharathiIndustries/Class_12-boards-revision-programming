@@ -1,0 +1,13 @@
+import random as r
+x = str(input("Enter file name :"))
+f = open(x+".txt","w")
+lo = int(input("ENter lower limit :"))
+up = int(input("Enter upper limit :"))
+n = int(input("How many numbers do you want to add :"))
+lis = []
+for i in range(n):
+  lis.append(r.randint(lo,up))
+f.write("Random numbers without sorting \n")
+f.writelines(lis)
+f.write("Random numbers after sorting \n")
+f.writelines(lis.sort())
