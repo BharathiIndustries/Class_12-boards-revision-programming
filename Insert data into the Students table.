@@ -1,0 +1,17 @@
+import mysql.connector as mc
+con = mc.connect(host = "localhost",user = "root",password= "root")
+cur = con.cursor()
+cur.execute("Use master")
+
+def adder():
+  x = int(input("Enter how many data you want to add :"))
+  for i in range(x):
+    id = int(input("Enter student ID :"))
+    na = str(input("Enter student name :"))
+    ag = int(input("Enter student Age :"))
+    ma = int(input("Enter student Marks :"))
+    st = "insert into child1 (ID,Name,Age,marks) values ({0},'{1}',{2},{3});".format(id,na,ag,ma)
+    cur.execute(st)
+adder()
+con.commit()
+con.close()
