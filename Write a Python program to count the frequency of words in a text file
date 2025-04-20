@@ -1,0 +1,14 @@
+x = str(input("Enter file name :"))
+f = open(x+".txt","r")
+dic = {}
+r = f.read().split()
+for i in r:
+  if i not in dic.keys():
+    dic[i] = 1
+  else:
+    dic[i] = dic[i]+1
+
+print("the word occurance of all the words in the text file :")
+for i in dic:
+  print(i,":\t",dic[i])
+f.close()
