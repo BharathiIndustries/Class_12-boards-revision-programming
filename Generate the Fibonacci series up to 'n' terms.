@@ -1,0 +1,8 @@
+x = int(input("enter Series limit :"))
+lis = [0,1]
+for i in range(0,x-1):
+  lis.append(lis[i]+lis[i+1])
+
+print("The Fibonacci series :")
+for i in lis:
+  print(i,end=",")
