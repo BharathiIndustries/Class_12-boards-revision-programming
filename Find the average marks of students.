@@ -1,0 +1,11 @@
+import mysql.connector as mc
+con = mc.connect(host = "localhost",user = "root",password= "root")
+cur = con.cursor()
+cur.execute("Use master")
+cur.execute("Select * from child1;")
+r = cur.fetchall()
+n = 0
+for i in r:
+  n = n +i[3]
+print("The Avergae marks of the students is :",n/len(r))
+con.close()
