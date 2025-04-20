@@ -1,0 +1,15 @@
+import pickle as p
+x = str(input("Enter file name :"))
+f = open(x+".bin","wb")
+def create():
+  y = int(input("Enter how many inputs you want to give :"))
+  dic = {}
+  for i in range(y):
+    k = str(input("Enter key :"))
+    n = int(input("Enter list length :"))
+    lis = []
+    for j in range(n):
+      m = int(input("Enter element :"))
+      lis.append(m)
+    dic[k] = lis
+  p.dump(dic,f)
