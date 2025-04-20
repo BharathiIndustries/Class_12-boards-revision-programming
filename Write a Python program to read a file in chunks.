@@ -1,0 +1,11 @@
+x = str(input("Enter file name :"))
+f = open(x+".txt","r")
+n = int(input("Enter chunck size :"))
+m = 0
+o = 0
+for i in f.read():
+  o = o+1
+while m <= o:
+  f.read(n)
+  m = m + n
+f.close()
