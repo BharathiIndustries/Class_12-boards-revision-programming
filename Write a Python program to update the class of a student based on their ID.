@@ -1,0 +1,11 @@
+import mysql.connector as mc
+con = mc.connect(host = "localhost",user = "root",password= "root")
+cur = con.cursor()
+cur.execute("Use School;")
+
+i = int(input("Enter student Id type :"))
+x = int(input("Enter new class :"))
+st = "update students set class = {} where id like '{}%' ;".format(x,i)
+cur.execute(st)
+con.commit()
+con.close()
