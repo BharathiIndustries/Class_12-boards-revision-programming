@@ -1,0 +1,237 @@
+import mysql.connector as m
+con = m.connect(host = "localhost",user = "root",password = "root")
+cur = con.cursor()
+
+st = "Use world;"
+cur.execute(st)
+
+def table_create():
+  st = "Create table student(Roll_No int, Name Varchar(50), Class int(3), Section char(2));"
+  cur.execute(st)
+  st = "Create table marks(Roll_No int, Name Varchar(50), Class int(3), Marks int(3));"
+  cur.execute(st)
+  st = "Create table department(EmpID int, Name Varchar(50), Salary int(10), Postion varchar(20));"
+  cur.execute(st)
+  con.commit()
+
+try:
+  table_create()
+except:
+  print("Table already exists")
+
+def student_adder():
+  x = int(input("How many students do you want to add :"))
+  for i in range(x):
+    ro = int(input("Enter Roll number :"))
+    na = str(input("Enter Name :"))
+    cl = int(input("Enter Class :"))
+    se = str(input("Enter Section :"))
+    st = "insert into student values({},'{}',{},'{}');".format(ro,na,cl,se)
+    cur.execute(st)
+    print("-"*20)
+  print("Data has been added")
+  con.commit()
+
+def marks_adder():
+  x = int(input("How many students do you want to add :"))
+  for i in range(x):
+    ro = int(input("Enter Roll number :"))
+    na = str(input("Enter Name :"))
+    cl = int(input("Enter Class :"))
+    ma = int(input("Enter Marks :"))
+    st = "insert into marks values({},'{}',{},{});".format(ro,na,cl,ma)
+    cur.execute(st)
+    print("-"*20)
+  print("Data has been added")
+  con.commit()
+
+def department_adder():
+  x = int(input("How many Employees do you want to add :"))
+  for i in range(x):
+    id = int(input("Enter Employee ID :"))
+    na = str(input("Enter Name :"))
+    sa = int(input("Enter salary :"))
+    po = str(input("Enter postion :"))
+    st = "insert into department values({},'{}',{},'{}');".format(id,na,sa,po)
+    cur.execute(st)
+    print("-"*20)
+  print("Data has been added")
+  con.commit()
+
+def average_marks():
+  cur.execute("Select * from marks;")
+  r = cur.fetchall()
+  n = 0
+  for i in r:
+    n = n + int(i[3])
+  print("Average students marks :",n/len(r))
+  con.commit()
+
+def average_employee_salary():
+  cur.execute("Select * from department;")
+  r = cur.fetchall()
+  n = 0
+  for i in r:
+    n = n + int(i[2])
+  print("Average Employee salary :",n/len(r))
+  con.commit()
+
+def change_student():
+  ro = int(input("Enter student roll number :"))
+  print("""Operations available :
+  1.Change Name (1)
+  2.Change Class (2)
+  3.Change section (3)""")
+  w = int(input("Enter opration number :"))
+  if w == 1:
+    na = str(input("Enter New Name :"))
+    st = "Update student set name = '{}' where Roll_No = {};".format(na,ro)
+    cur.execute(st)
+    print("Change has been made")
+  elif w == 2:
+    cl = str(input("Enter New class :"))
+    st = "Update student set class = {} where Roll_No = {};".format(cl,ro)
+    cur.execute(st)
+    print("Change has been made")
+  elif w == 3:
+    se = str(input("Enter New Section :"))
+    st = "Update student set section = '{}' where Roll_No = {};".format(se,ro)
+    cur.execute(st)
+    print("Change has been made")
+  else:
+    print("Invaild Roll number")
+  con.commit()
+
+def change_marks():
+  ro = int(input("Enter student roll number :"))
+  print("""Operations available :
+  1.Change Name (1)
+  2.Change Class (2)
+  3.Change marks (3)""")
+  w = int(input("Enter opration number :"))
+  if w == 1:
+    na = str(input("Enter New Name :"))
+    st = "Update marks set name = '{}' where Roll_No = {};".format(na,ro)
+    cur.execute(st)
+    print("Change has been made")
+  elif w == 2:
+    cl = str(input("Enter New class :"))
+    st = "Update marks set class = {} where Roll_No = {};".format(cl,ro)
+    cur.execute(st)
+    print("Change has been made")
+  elif w == 3:
+    ma = str(input("Enter New Marks :"))
+    st = "Update marks set marks = {} where Roll_No = {};".format(ma,ro)
+    cur.execute(st)
+    print("Change has been made")
+  else:
+    print("Invaild Roll number")
+  con.commit()
+
+def change_department():
+  id = int(input("Enter Employee ID :"))
+  print("""Operations available :
+  1.Change Name (1)
+  2.Change Salary (2)
+  3.Change Postion (3)""")
+  w = int(input("Enter opration number :"))
+  if w == 1:
+    na = str(input("Enter New Name :"))
+    st = "Update department set name = '{}' where EmpID = {};".format(na,id)
+    cur.execute(st)
+    print("Change has been made")
+  elif w == 2:
+    sa = str(input("Enter New salary :"))
+    st = "Update marks set salary = {} where EmpID = {};".format(sa,id)
+    cur.execute(st)
+    print("Change has been made")
+  elif w == 3:
+    po = str(input("Enter New Postion :"))
+    st = "Update marks set postion = '{}' where EmpID = {};".format(po,id)
+    cur.execute(st)
+    print("Change has been made")
+  else:
+    print("Invaild Employee ID")
+  con.commit()
+
+def display_student():
+  cur.execute("Select * from student;")
+  r = cur.fetchall()
+  print("Database Contents")
+  print("Roll_no\t","Name\t\t","Class\t","Section")
+  for i in r:
+    print(i[0],"\t",i[1],"\t",i[2],"\t",i[3])
+
+def display_marks():
+  cur.execute("Select * from marks;")
+  r = cur.fetchall()
+  print("Database Contents")
+  print("Roll_no\t","Name\t\t","Class\t","Marks")
+  for i in r:
+    print(i[0],"\t",i[1],"\t",i[2],"\t",i[3])
+
+def display_department():
+  cur.execute("Select * from department;")
+  r = cur.fetchall()
+  print("Database Contents")
+  print("EmpID\t","Name\t\t","Salary\t","Postion")
+  for i in r:
+    print(i[0],"\t",i[1],"\t",i[2],"\t",i[3])
+
+
+
+
+print("""Functions Available :
+1.student adder
+2.marks adder
+3.department adder
+4.average marks
+5.average salary
+6.change students
+7.change marks
+8.change department
+9.display student
+10.display marks
+11.display department
+12.Exit""")
+w = int(input("Enter function number :"))
+while w != 12:
+  if w == 1:
+    student_adder()
+    print("*"*20)
+  elif w == 2:
+    marks_adder()
+    print("*"*20)
+  elif w == 3:
+    department_adder()
+    print("*"*20)
+  elif w == 4:
+    average_marks()
+    print("*"*20)
+  elif w == 5:
+    average_employee_salary()
+    print("*"*20)
+  elif w == 6:
+    change_student()
+    print("*"*20)
+  elif w == 7:
+    change_marks()
+    print("*"*20)
+  elif w == 8:
+    change_department()
+    print("*"*20)
+  elif w == 9:
+    display_student()
+    print("*"*20)
+  elif w == 10:
+    display_marks()
+    print("*"*20)
+  elif w == 11:
+    display_department()
+    print("*"*20)
+  elif w != 12:
+    pass
+  else:
+    print("Invaild Function number")
+    print("*"*20)
+  w = int(input("Enter function number :"))
