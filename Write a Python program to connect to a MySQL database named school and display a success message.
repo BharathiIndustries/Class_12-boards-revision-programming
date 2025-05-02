@@ -1,0 +1,8 @@
+import mysql.connector as mc
+con = mc.connect(host = "localhost",user = "root",password= "root")
+
+if con.is_connected():
+  print("Conection is successful")
+  cur = con.cursor()
+  cur.execute("Create Database School;")
+  cur.execute("USe School")
