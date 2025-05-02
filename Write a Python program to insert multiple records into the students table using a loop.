@@ -1,0 +1,13 @@
+import mysql.connector as mc
+con = mc.connect(host = "localhost",user = "root",password= "root")
+cur = con.cursor()
+cur.execute("Use School;")
+n = int(input("Enter how many inputs you want to give :"))
+for i in range(n):
+  id = int(input("Enter ID :"))
+  na = str(input("Enter Name :"))
+  cl = int(input("Enter Class :"))
+  st = "insert into students values({},'{}',{});".format(id,na,cl)
+  cur.execute(st)
+con.commit()
+con.close()
