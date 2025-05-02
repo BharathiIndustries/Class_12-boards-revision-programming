@@ -1,0 +1,12 @@
+import mysql.connector as mc
+con = mc.connect(host = "localhost",user = "root",password= "root")
+cur = con.cursor()
+cur.execute("Use School;")
+st = "Select * from students;"
+cur.execute(st)
+r = cur.fetchall()
+print("Records data:")
+print("id\t","name\t\t","class")
+for i in r:
+  print(i[0],"\t",i[1],"\t",i[2])
+con.close()
