@@ -1,0 +1,24 @@
+import csv as c
+f = open("students.csv","w")
+n = int(input("How many Data do you want to add :"))
+wr = c.writer(f)
+wr.writerow(["Sno","Name","Class","Roll No","Marks"])
+
+for i in range(1,n+1):
+  na = str(input("Enter Student Name :"))
+  cl = int(input("Enter Student Class :"))
+  ro = int(input("Enter Student Roll number :"))
+  ma = int(input("Enter student Marks :"))
+  lis = [i,na,cl,ro,ma]
+  wr.writerow(lis)
+
+print("File created")
+f.close()
+print("-"*20)
+
+f = open("students.csv","r")
+re = c.reader(f)
+print("File contents")
+for i in re:
+  print(i[0],"\t",i[1],"\t",i[2],"\t",i[3],"\t",i[4])
+f.close()
