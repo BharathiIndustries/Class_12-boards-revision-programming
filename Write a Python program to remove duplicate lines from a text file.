@@ -1,0 +1,13 @@
+x = str(input("Enter file name :"))
+f = open(x+".txt","r")
+re = f.readlines()
+lis = []
+for i in re:
+  if lis.count(i) <= 1:
+    lis.append(i)
+  else:
+    pass
+
+f.close()
+f = open(x+".txt","w")
+f.writelines(lis)
